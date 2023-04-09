@@ -27,21 +27,25 @@
                            <%= photo.user.username %>
                         </a>
 
-                        <div style="margin-top: 30px ;">
-                           <ul style="display: flex; justify-content: space-between;">
-                              <li>
-                                 <button style="min-width: 266px;" class="read_more" data-toggle="modal"
-                                    data-target="#updateModal">Update</button>
-                              </li>
-                              <li>
-                                 <a style="min-width: 266px;" class="read_more"
-                                    onclick="return confirm('are you sure?')"
-                                    href="/photos/<%=photo._id%>?_method=DELETE">
-                                    Delete
-                                 </a>
-                              </li>
-                           </ul>
-                        </div>
+                        <% if(isOwner) { %>
+                           <div style="margin-top: 30px ;">
+                              <ul style="display: flex; justify-content: space-between;">
+                                 <li>
+                                    <button style="min-width: 266px;" class="read_more" data-toggle="modal"
+                                       data-target="#updateModal">Update</button>
+                                 </li>
+                                 <li>
+                                    <a style="min-width: 266px;" class="read_more"
+                                       onclick="return confirm('are you sure?')"
+                                       href="/photos/<%=photo._id%>?_method=DELETE">
+                                       Delete
+                                    </a>
+                                 </li>
+                              </ul>
+                           </div>
+                           <% } %>
+
+
 
                      </div>
                   </div>
